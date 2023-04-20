@@ -1,5 +1,4 @@
 #add all your required libraries here
-wolframalpha
 SpeechRecognition
 ecapture
 pyttsx3

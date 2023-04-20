@@ -1,8 +1,8 @@
 {
     "user": "betaTester",
-    "userNewsLikings": [
-        "word 1",
-        "word 2",
-        "word 3"
-    ]
+    "userNewsLikings": {
+        "word 1" : 99,
+        "word 2" : 3,
+        "word 3" : 1
+    }
 }
