@@ -1,3 +1,5 @@
+# module to convert text to voice and vice versa 
+
 import wolframalpha
 import pyttsx3
 import speech_recognition as sr
@@ -22,7 +24,7 @@ def getCommand():
     with sr.Microphone() as source:
 
         print("Listening...")
-        command.pause_threshold = 1
+        # command.pause_threshold = 1
         audio = command.listen(source)
 
     try:
@@ -30,7 +32,7 @@ def getCommand():
         ##  add this to smart mirror ui somehow
         ##
         print("Computing...")
-        query = command.recognise_google(audio, language = 'en-in')
+        query = command.recognize_google(audio)
 
         # remove after testing 
         print("user said: {query} \n")
