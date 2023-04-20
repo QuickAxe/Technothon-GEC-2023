@@ -1,0 +1,3 @@
+[submodule "smartMirror/SmartMirror"]
+	path = smartMirror/SmartMirror
+	url = https://github.com/grantukas/SmartMirror
