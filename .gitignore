@@ -2,3 +2,5 @@ tempCodeRunnerFile.py
 credentials.json
 token.json
 *.pyc
+*.pyc
+*.ui
