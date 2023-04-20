@@ -1,9 +1,7 @@
 # module to convert text to voice and vice versa 
 
-import wolframalpha
 import pyttsx3
 import speech_recognition as sr
-import datetime
 
 
 # initialising text to voice engine
