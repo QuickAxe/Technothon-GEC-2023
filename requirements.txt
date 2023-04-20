@@ -3,6 +3,7 @@ wolframalpha
 SpeechRecognition
 ecapture
 pyttsx3
+pyaudio
 
 
 
