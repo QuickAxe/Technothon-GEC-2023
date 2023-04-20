@@ -12,7 +12,7 @@
 # }
 
 import requests 
-# from urllib.request import urlopen
+from urllib.request import urlopen
 
 def getNews():
 
