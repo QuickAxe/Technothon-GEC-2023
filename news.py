@@ -14,7 +14,6 @@
 import json
 import requests 
 from urllib.request import urlopen
-import voiceParser as vp
 
 def getNews():
 
