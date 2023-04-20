@@ -4,6 +4,9 @@ ecapture
 pyttsx3
 pyaudio
 nltk 
+opencv-python
+
+
 
 
 
