@@ -1,4 +1,4 @@
-import voiceAssistant as vs 
+import voiceParser as vs 
 
 query = vs.getCommand().lower()
 
