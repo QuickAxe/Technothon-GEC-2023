@@ -1,11 +1,15 @@
 # module to find what news the user wants and suggest news accordingly 
-# input the description of the news to the recommendedNews() function 
+# input the description of the news to the recommendedNews() function
+#######################################################################
+#  WARNING 
+## !! its boud to run out of bouds at some point, correct at some point 
 
 from nltk.tokenize import word_tokenize 
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 
 import json
+import heapq
 
 
 def recommendedNews(news):
@@ -30,15 +34,29 @@ def recommendedNews(news):
     keyWords = FreqDist(filteredTokens)
     tokens = keyWords.most_common(10)
 
-    #print(tokens)
+    touple = []
     
-    for item in data["userNewsLikings"] :
-       for key, value in tokens :
-             if(value == item):
-                
+    for words in tokens:
+        if(words[0] in data["userNewsLikings"]) : 
+            data["userNewsLikings"][words[0]] += 1
 
+        else :        
+            data["userNewsLikings"][words[0]] =  1
 
+    touple = [(int(data["userNewsLikings"][key]), key) for key in data["userNewsLikings"]]
 
+    heapq._heapify_max(touple)
+
+    formattedData = dict()
+    
+    for i, word in touple:
+        formattedData[word] =i 
+    
+    data["userNewsLikings"] = formattedData
+
+    f.seek(0)
+    json.dump(data, f)
+    f.truncate()
 
     
 
