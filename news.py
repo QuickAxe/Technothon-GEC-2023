@@ -1,4 +1,4 @@
-# returns news in a json file, in this format, under "articles"
+# returns news as a python dictionary, in this format, under "articles", as an array
 # 
 # {
 #     "source" : "..."
@@ -8,6 +8,7 @@
 #     "url" : "...",
 #     "urlToImage" : "...",
 #     "publishedAt" : "...",
+#     "content" : "... too big, ignore...."
 # }
 
 import json
@@ -24,6 +25,6 @@ def getNews():
 
     return data
 
-print(json.dumps(getNews()))
+
 
            
