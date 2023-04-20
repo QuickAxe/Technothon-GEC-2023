@@ -16,7 +16,7 @@ class Window(QMainWindow):
         # setting title
         self.setWindowTitle("Mirror")
         # setting geometry
-        self.setGeometry(100, 100, 1000, 1000)
+        self.setGeometry(100, 100, 400, 400)
 
         # calling method
         # self.default_palette = QtGui.QGuiApplication.palette()

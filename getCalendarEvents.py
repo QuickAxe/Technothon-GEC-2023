@@ -58,5 +58,3 @@ def getUpcomingEvents(max):
 
     except HttpError as error:
         print("An error occurred: %s" % error)
-
-print(getUpcomingEvents(1))
