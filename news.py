@@ -11,10 +11,8 @@
 #     "content" : "... too big, ignore...."
 # }
 
-import json
 import requests 
-from urllib.request import urlopen
-import voiceParser as vp
+# from urllib.request import urlopen
 
 def getNews():
 
