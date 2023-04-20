@@ -4,3 +4,4 @@ token.json
 *.pyc
 *.pyc
 *.ui
+__pycache__/voiceParser.cpython-310.pyc
