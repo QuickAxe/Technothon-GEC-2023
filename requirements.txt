@@ -4,6 +4,7 @@ SpeechRecognition
 ecapture
 pyttsx3
 pyaudio
+nltk 
 
 
 
