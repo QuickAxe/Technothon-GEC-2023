@@ -1,6 +1,7 @@
 # returns news in a json file, in this format, under "articles"
 # 
 # {
+#     "source" : "..."
 #     "author" : "...",
 #     "title" : "...",
 #     "description" : "...",
@@ -22,5 +23,7 @@ def getNews():
     data = res.json()
 
     return data
+
+print(json.dumps(getNews()))
 
            
