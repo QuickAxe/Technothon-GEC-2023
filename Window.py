@@ -5,7 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 from clockWidget import Clock
-
+from newsWidget import News
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -44,8 +44,8 @@ class Window(QMainWindow):
         self.setCentralWidget(self.window)
         clock = Clock(0,0,200,100,12)
         self.layout.addWidget(clock,0,0)
-        clock2 = Clock(0,0,200,100,12)
-        self.layout.addWidget(clock2,0,1)
+        news = News(0,0,200,100,12)
+        self.layout.addWidget(news,0,1)
         _ = self.layout.addWidget(QLabel(),1,0,1,2)
         # _ = self.layout.addWidget(QLabel())
         clock3 = Clock(0,0,200,100,12)
