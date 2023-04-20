@@ -1,8 +1,8 @@
 #add all your required libraries here
-pandas
-newsapi-python
-newsapi
-forecastiopy
-darkskylib
---upgrade google-api-python-client
-google-auth-oauthlib
+wolframalpha
+SpeechRecognition
+ecapture
+pyttsx3
+
+
+
