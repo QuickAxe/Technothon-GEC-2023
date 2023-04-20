@@ -10,7 +10,7 @@ import json
 
 class News(QWidget):
     _TotalNews = 3
-    
+    _MaxSize = 20
     def __init__(self, ax: int, ay: int, aw: int, ah: int, fontsize: int):
         self.fontsize = fontsize 
         super().__init__()
@@ -36,7 +36,9 @@ class News(QWidget):
             label = QLabel()
             label.setAlignment(Qt.AlignCenter)
             label.setFont(font)
-            label.setText(article['title'])
+            text = article['title']
+            text = text if text.size < self._MaxSize else text[:_MaxSize-3] + "..."
+            label.setText()
             labels.append(label)
         return labels
     
