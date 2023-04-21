@@ -41,38 +41,6 @@ class NewsFocus(QWidget):
         label.setWordWrap(True)
         label.setText(text)
         return label
-    #     self.centralwidget = QtWidgets.QWidget(MainWindow)
-    #     self.centralwidget.setObjectName("centralwidget")
-    #     self.Title = QtWidgets.QLabel(self.centralwidget)
-    #     self.Title.setGeometry(QtCore.QRect(120, 40, 571, 31))
-    #     self.Title.setAlignment(QtCore.Qt.AlignCenter)
-    #     self.Title.setObjectName("Title")
-    #     self.Description = QtWidgets.QLabel(self.centralwidget)
-    #     self.Description.setGeometry(QtCore.QRect(120, 90, 571, 20))
-    #     self.Description.setAlignment(QtCore.Qt.AlignCenter)
-    #     self.Description.setObjectName("Description")
-    #     self.Content = QtWidgets.QLabel(self.centralwidget)
-    #     self.Content.setGeometry(QtCore.QRect(120, 170, 571, 361))
-    #     self.Content.setAlignment(QtCore.Qt.AlignCenter)
-    #     self.Content.setObjectName("Content")
-    #     self.Date = QtWidgets.QLabel(self.centralwidget)
-    #     self.Date.setGeometry(QtCore.QRect(30, 120, 71, 18))
-    #     self.Date.setObjectName("Date")
-    #     self.Source = QtWidgets.QLabel(self.centralwidget)
-    #     self.Source.setGeometry(QtCore.QRect(710, 110, 71, 18))
-    #     self.Source.setObjectName("Source")
-    #     MainWindow.setCentralWidget(self.centralwidget)
-    #     self.retranslateUi(MainWindow)
-    #     QtCore.QMetaObject.connectSlotsByName(MainWindow)
-    # def retranslateUi(self, MainWindow):
-    #     _translate = QtCore.QCoreApplication.translate
-    #     MainWindow.setWindowTitle(_translate("MainWindow", "FocusedNews"))
-    #     self.Title.setText(_translate("MainWindow", "Title"))
-    #     self.Description.setText(_translate("MainWindow", "Description"))
-    #     self.Content.setText(_translate("MainWindow", "content"))
-    #     self.Date.setText(_translate("MainWindow", "Date"))
-    #     self.Source.setText(_translate("MainWindow", "Source"))
-
 
 if __name__ == "__main__":
     from newsWidget import getNews

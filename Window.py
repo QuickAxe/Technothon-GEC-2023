@@ -24,7 +24,6 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
-        self.FocusedNewsMode(2)
         # showing all the widgets
         self.show()
 
@@ -46,24 +45,7 @@ class Window(QMainWindow):
         app.setPalette(darkpalette)
 
     def UiComponents(self):
-        self.window = QtWidgets.QWidget()
-        self.layout = QtWidgets.QGridLayout()
-        self.setCentralWidget(self.window)
-        clock = Clock(0, 0, 20, 10, 12)
-
-        self.layout.addWidget(clock, 0, 0)
-        news = News(0, 0, 0, 0, 12)
-        self.newsJson = news.getNewsJson()
-        self.layout.addWidget(news, 0, 2)
-        self.layout.addWidget(QLabel(), 0, 1, 2, 1)
-        # _ = self.layout.addWidget(QLabel())
-        events = Events(0, 0, 20, 10, 12)
-        # # calendar = QWidget.QCalendar()
-        clock4 = Clock(0, 0, 20, 10, 12)
-        self.layout.addWidget(clock4, 1, 0)
-        self.layout.addWidget(events, 1, 2)
-
-        self.window.setLayout(self.layout)
+        self.homeMode()
         
     def homeMode(self):
         self.window = QtWidgets.QWidget()

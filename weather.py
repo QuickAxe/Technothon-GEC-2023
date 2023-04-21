@@ -44,9 +44,9 @@
 #
 
 
-import json
+# import json
 import requests
-from urllib.request import urlopen
+# from urllib.request import urlopen
 
 def getWeather():
     res = requests.get("http://api.weatherapi.com/v1/current.json?key=e6b47162328d4d09a5911554232104 &q=Goa&aqi=no")
