@@ -27,13 +27,10 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
-<<<<<<< Updated upstream
-
+        self.clownMode()
         #self.focusedNewsMode(2)
        
-=======
         # self.focusedNewsMode(2)
->>>>>>> Stashed changes
         # showing all the widgets
         self.show()
 
@@ -71,19 +68,11 @@ class Window(QMainWindow):
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
-<<<<<<< Updated upstream
-        weather = Weather()
-        self.Layout2.addWidget(weather,0)
+        health = Health()
+        self.Layout2.addWidget(health,0)
         events = Events(0,0,0,0,12)
         self.Layout2.addWidget(events,0)
-        
-=======
-        health = Health()
-        self.Layout2.addWidget(health)
-        events = Events(0,0,0,0,12)
-        self.Layout2.addWidget(events)
         self.HorizontalLayout.addLayout(self.Layout2)
->>>>>>> Stashed changes
         self.window.setLayout(self.HorizontalLayout)
         
     def focusedNewsMode(self, n):
@@ -95,13 +84,31 @@ class Window(QMainWindow):
         self.layout.addWidget(self.focusNews, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
-    def clownMode(self, n):
+    def createImageLabel(self, path):
+        label = QLabel()
+        image = QPixmap(path)
+        image.setDevicePixelRatio(5)
+        label.setPixmap(image)
+        label.setScaledContents(True)
+        label.resize(image.width(), image.height())
+        return label
+    def createLabel(self, text,font):
+        # print(text)
+        label = QLabel()
+        label.setFont(font)
+        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        label.setWordWrap(True)
+        label.setText(text)
+        return label    
+    def clownMode(self):
         self.window = QtWidgets.QWidget()
         self.setCentralWidget(self.window)
         self.layout = QtWidgets.QGridLayout()
-        self.layout.addWidget(QLabel(), 0,0, 4,1)
-        self.focusNews = NewsFocus(self.newsJson,n)
-        self.layout.addWidget(self.focusNews, 1,1,2,2)
+        font = QFont("Arial", 30, QFont.Bold)
+        label = self.createLabel("Of course, it is you, my liege.",font)
+        self.layout.addWidget(label, 0,0, 1,4)
+        self.clownImage = self.createImageLabel("clown.png")
+        self.layout.addWidget(self.clownImage, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
         

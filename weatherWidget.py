@@ -59,7 +59,6 @@ class Weather(QWidget):
         label.setPixmap(image)
         label.setScaledContents(True)
         label.resize(image.width(), image.height())
-
         return label
 
 
