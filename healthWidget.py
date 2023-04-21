@@ -58,7 +58,7 @@ class Health(QWidget):
 
     def createImageLabel(self):
         label = QLabel()
-        image = QPixmap("partiallyCloudy.jpg",)
+        image = QPixmap("weatherIcons/heart.jpeg")
         image.setDevicePixelRatio(5)
         label.setPixmap(image)
         label.setScaledContents(True)

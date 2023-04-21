@@ -54,7 +54,7 @@ class Weather(QWidget):
 
     def createImageLabel(self):
         label = QLabel()
-        image = QPixmap("partiallyCloudy.jpg",)
+        image = QPixmap("weatherIcons/sunny.png",)
         image.setDevicePixelRatio(5)
         label.setPixmap(image)
         label.setScaledContents(True)
