@@ -7,7 +7,9 @@ from PyQt5.QtCore import *
 from clockWidget import Clock
 from newsWidget import News
 from eventsWidget import Events
-
+from newsFocus import NewsFocus
+from healthWidget import Health
+from weatherWidget import Weather
 
 class Window(QMainWindow):
     def __init__(self):
@@ -22,6 +24,7 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
+        self.FocusedNewsMode(2)
         # showing all the widgets
         self.show()
 
@@ -50,6 +53,7 @@ class Window(QMainWindow):
 
         self.layout.addWidget(clock, 0, 0)
         news = News(0, 0, 0, 0, 12)
+        self.newsJson = news.getNewsJson()
         self.layout.addWidget(news, 0, 2)
         self.layout.addWidget(QLabel(), 0, 1, 2, 1)
         # _ = self.layout.addWidget(QLabel())
@@ -60,6 +64,38 @@ class Window(QMainWindow):
         self.layout.addWidget(events, 1, 2)
 
         self.window.setLayout(self.layout)
+        
+    def homeMode(self):
+        self.window = QtWidgets.QWidget()
+        self.setCentralWidget(self.window)
+        self.HorizontalLayout = QtWidgets.QHBoxLayout()
+        self.Layout1 =  QtWidgets.QVBoxLayout()
+        news = News(0, 0, 0, 0, 12)
+        self.newsJson = news.getNewsJson()
+        self.Layout1.addWidget(news, 0)
+        health = Health(0,0,0,0,12)
+        self.Layout1.addWidget(health,1)
+        
+        self.HorizontalLayout.addWidget(QLabel(), 1)
+        
+        self.Layout2 =  QtWidgets.QVBoxLayout()
+        weather = Weather(0,0,0,12)
+        self.Layout2.addWidget(weather,0)
+        events = Events(0,0,0,12)
+        self.Layout2.addWidget(events,0)
+        
+        self.window.setLayout(self.HorizontalLayout)
+        
+    def focusedNewsMode(self, n):
+        self.window = QtWidgets.QWidget()
+        self.setCentralWidget(self.window)
+        self.layout = QtWidgets.QGridLayout()
+        self.layout.addWidget(QLabel(), 0,0, 4,1)
+        self.focusNews = NewsFocus(self.newsJson,n)
+        self.layout.addWidget(self.focusNews, 1,1,2,2)
+        self.layout.addWidget(QLabel(), 0,3, 4,1)
+        self.window.setLayout(self.layout)
+        
 
 
 if __name__ == "__main__":
