@@ -27,9 +27,13 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
+<<<<<<< Updated upstream
 
         #self.focusedNewsMode(2)
        
+=======
+        # self.focusedNewsMode(2)
+>>>>>>> Stashed changes
         # showing all the widgets
         self.show()
 
@@ -60,18 +64,26 @@ class Window(QMainWindow):
         self.Layout1 =  QtWidgets.QVBoxLayout()
         news = News(0, 0, 0, 0, 12)
         self.newsJson = news.getNewsJson()
-        self.Layout1.addWidget(news, 0)
-        # health = Health(0,0,0,0,12)
-        # self.Layout1.addWidget(health,1)
-        
+        self.Layout1.addWidget(news)
+        weather = Weather()
+        self.Layout1.addWidget(weather)
+        self.HorizontalLayout.addLayout(self.Layout1)
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
+<<<<<<< Updated upstream
         weather = Weather()
         self.Layout2.addWidget(weather,0)
         events = Events(0,0,0,0,12)
         self.Layout2.addWidget(events,0)
         
+=======
+        health = Health()
+        self.Layout2.addWidget(health)
+        events = Events(0,0,0,0,12)
+        self.Layout2.addWidget(events)
+        self.HorizontalLayout.addLayout(self.Layout2)
+>>>>>>> Stashed changes
         self.window.setLayout(self.HorizontalLayout)
         
     def focusedNewsMode(self, n):
@@ -83,11 +95,20 @@ class Window(QMainWindow):
         self.layout.addWidget(self.focusNews, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
+    def clownMode(self, n):
+        self.window = QtWidgets.QWidget()
+        self.setCentralWidget(self.window)
+        self.layout = QtWidgets.QGridLayout()
+        self.layout.addWidget(QLabel(), 0,0, 4,1)
+        self.focusNews = NewsFocus(self.newsJson,n)
+        self.layout.addWidget(self.focusNews, 1,1,2,2)
+        self.layout.addWidget(QLabel(), 0,3, 4,1)
+        self.window.setLayout(self.layout)
         
 
 
-# if __name__ == "__main__":
-def init():
+if __name__ == "__main__":
+# def init():
     window = Window()
     sys.exit(app.exec())
 

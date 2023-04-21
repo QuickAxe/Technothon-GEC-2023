@@ -55,7 +55,7 @@ class Events(QWidget):
             summary = (
                 summary
                 if len(date_and_time) + 1 + len(summary) < self._MaxSize
-                else summary[: self._MaxSize - 3] + "..."
+                else summary[: len(date_and_time) + 1 + self._MaxSize - 3] + "..."
             )
             text = f"{date_and_time} {summary}"
             label.setText(text)

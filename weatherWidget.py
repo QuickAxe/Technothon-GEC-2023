@@ -44,7 +44,7 @@ class Weather(QWidget):
         
         
     def createLabel(self, text,font):
-        print(text)
+        # print(text)
         label = QLabel()
         label.setFont(font)
         label.setAlignment(Qt.AlignmentFlag.AlignCenter)
