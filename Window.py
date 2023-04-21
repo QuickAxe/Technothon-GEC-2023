@@ -13,6 +13,27 @@ from weatherWidget import Weather
 
 import speech_recognition as sr
 
+def init():
+    worker = VoiceWorker()
+    thread = QtCore.QThread()
+    thread.start()
+    worker.moveToThread(thread)
+
+    worker.textChanged.connect(listen)
+
+    start_button = QtWidgets.QPushButton("Start")
+
+
+
+
+
+    window = Window()
+    app.exec()
+
+if __name__ == "__main__":
+    
+    init()
+
 
 class VoiceWorker(QtCore.QObject):
     textChanged = QtCore.pyqtSignal(str)
@@ -33,42 +54,6 @@ class VoiceWorker(QtCore.QObject):
                     print("You said: ", value)
                 except sr.UnknownValueError:
                     print("Oops")
-
-def listen(command):
-    # command = sr.getCommand().lower()
-    if(command == "hello" or command == "hi"):
-        sr.speak("hello")
-    elif(command == "open weather" or command == "whats the weather" or command == "weather"):
-        ###  
-        ### !! Add weather info
-        ###
-        sr.speak("weather")
-    elif(command == "news one" or command == "news article one" or command == "expand news article one"):
-        ###
-        ### !!! news 
-        ###
-        sr.speak("news[0]")
-    elif(command == "news two" or command == "news article two" or command == "expand news article two"):
-        ###
-        ### !!! news 
-        ###
-        sr.speak("news[1]")
-    elif(command == "news three" or command == "news article three" or command == "expand news article three"):
-        ###
-        ### !!! news 
-        ###
-        sr.speak("news[2]")
-    elif(command == "health" or command == "health goal" or command == "how many steps today"):
-        ###
-        ### !!! health, steps today
-        sr.speak("your step goal for today is health['stepGoal'] steps")
-    elif(command == "mirror mirror on the wall"):
-        ####
-        #### display clown image here
-        ####
-       # Window.clownMode()
-        sr.speak("I'm the funniest of them all")
-    print(command)
 
 
 
@@ -132,8 +117,8 @@ class Window(QMainWindow):
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
-        health = Health()
-        self.Layout2.addWidget(health,0)
+        self.health = Health()
+        self.Layout2.addWidget(self.health,0)
         events = Events(0,0,0,0,12)
         self.Layout2.addWidget(events,0)
         self.HorizontalLayout.addLayout(self.Layout2)
@@ -148,7 +133,7 @@ class Window(QMainWindow):
         self.layout.addWidget(self.focusNews, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
-        return self.newsJson
+        return self.newsJson['articles'][n-1]['description']
     
     def createImageLabel(self, path):
         label = QLabel()
@@ -177,24 +162,45 @@ class Window(QMainWindow):
         self.layout.addWidget(self.clownImage, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
-        
+    def listen(self, command):
+        command = command.lower()
+        if(command == "hello" or command == "hi"):
+            sr.speak("hello")
+        elif(command == "open weather" or command == "whats the weather" or command == "weather"):
+            ###  
+            ### !! Add weather info
+            ###
+            sr.speak("weather")
+        elif(command == "news one" or command == "news article one" or command == "expand news article one"):
+            desc =self.focusedNewsMode(1)
+            sr.speak(desc)
+        elif(command == "news two" or command == "news article two" or command == "expand news article two"):
+            ###
+            ### !!! news 
+            desc =self.focusedNewsMode(2)
+            sr.speak(desc)
+            ###
+            
+        elif(command == "news three" or command == "news article three" or command == "expand news article three"):
+            ###
+            ### !!! news 
+            desc =self.focusedNewsMode(3)
+            sr.speak(desc)
+            ###
+        elif(command == "health" or command == "health goal" or command == "how many steps today"):
+            ###
+            ### !!! health, steps today
+            self.
+            sr.speak("your step goal for today is health['stepGoal'] steps")
+        elif(command == "mirror mirror on the wall"):
+            ####
+            #### display clown image here
+            ####
+        # Window.clownMode()
+            sr.speak("I'm the funniest of them all")
+        print(command)
 
-def init():
-    worker = VoiceWorker()
-    thread = QtCore.QThread()
-    thread.start()
-    worker.moveToThread(thread)
-    worker.textChanged.connect(listen)
-
-    threadpool = QThreadPool()
-
-    threadpool.start(worker)
-    window = Window()
-    app.exec()
-
-if __name__ == "__main__":
-    
-    init()
+   
 
 
 #init()
