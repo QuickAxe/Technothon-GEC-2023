@@ -8,8 +8,10 @@ from clockWidget import Clock
 from newsWidget import News
 from eventsWidget import Events
 from newsFocus import NewsFocus
-from healthWidget import Health
-from weatherWidget import Weather
+# from healthWidget import Health
+# from weatherWidget import Weather
+
+app = QApplication(sys.argv)
 
 class Window(QMainWindow):
     def __init__(self):
@@ -24,6 +26,10 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
+<<<<<<< Updated upstream
+=======
+        self.focusedNewsMode(2)
+>>>>>>> Stashed changes
         # showing all the widgets
         self.show()
 
@@ -55,14 +61,14 @@ class Window(QMainWindow):
         news = News(0, 0, 0, 0, 12)
         self.newsJson = news.getNewsJson()
         self.Layout1.addWidget(news, 0)
-        health = Health(0,0,0,0,12)
-        self.Layout1.addWidget(health,1)
+        # health = Health(0,0,0,0,12)
+        # self.Layout1.addWidget(health,1)
         
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
-        weather = Weather(0,0,0,12)
-        self.Layout2.addWidget(weather,0)
+        # weather = Weather(0,0,0,12)
+        # self.Layout2.addWidget(weather,0)
         events = Events(0,0,0,12)
         self.Layout2.addWidget(events,0)
         
@@ -80,7 +86,7 @@ class Window(QMainWindow):
         
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
+# if __name__ == "__main__":
+def init():
     window = Window()
     sys.exit(app.exec())
