@@ -3,8 +3,5 @@
 import voiceParser as vs 
 import news 
 
-query = news.getNews()
 
-
-for words in query["articles"]:
-    vs.speak(words)
+vs.speak("120000")

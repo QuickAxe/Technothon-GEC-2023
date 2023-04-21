@@ -26,10 +26,7 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
-<<<<<<< Updated upstream
-=======
         self.focusedNewsMode(2)
->>>>>>> Stashed changes
         # showing all the widgets
         self.show()
 

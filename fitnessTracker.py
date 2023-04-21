@@ -27,6 +27,7 @@
 def fitData():
     data = {"heartRate" : 72,
             "sleep" : 7,
-            "SpO2" : 95}
+            "SpO2" : 95,
+            "stepGoal": 12000}
 
     return data
