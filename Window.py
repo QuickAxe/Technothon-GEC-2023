@@ -190,7 +190,7 @@ class Window(QMainWindow):
         elif(command == "health" or command == "health goal" or command == "how many steps today"):
             ###
             ### !!! health, steps today
-            self.
+            
             sr.speak("your step goal for today is health['stepGoal'] steps")
         elif(command == "mirror mirror on the wall"):
             ####
@@ -201,6 +201,25 @@ class Window(QMainWindow):
         print(command)
 
    
+def init():
+    worker = VoiceWorker()
+    thread = QtCore.QThread()
+    thread.start()
+    worker.moveToThread(thread)
 
+    worker.textChanged.connect(Window.listen)
+
+    threadpool = QThreadPool()
+    
+    worker = worker()
+    threadpool.start(worker)
+
+
+    window = Window()
+    app.exec()
+
+if __name__ == "__main__":
+    
+    init()
 
 #init()
