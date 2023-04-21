@@ -44,7 +44,7 @@ if __name__ == "__main__":
     App = QApplication(sys.argv)
     
     # create the instance of our Window
-    window = ListWidget(0,0,100,100,12,"HELP!", ["AAAaaAaAa", "aAAaAaAaaA", "aAaAaaAaa", "aaAaaA!"],3, 60)
+    window = ListWidget(0,0,100,100,12,"HELP!", ["AAAaaAaAa", "___________", "aAaAaaAaa", "aaAaaA!"],3, 60)
     
     # showing all the widgets
     window.show()

@@ -4,6 +4,10 @@ ecapture
 pyttsx3
 pyaudio
 nltk 
+opencv-python
+--upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+
 
 
 
