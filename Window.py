@@ -184,15 +184,11 @@ def init():
     thread = QtCore.QThread()
     thread.start()
     worker.moveToThread(thread)
-
     worker.textChanged.connect(listen)
 
-    start_button = QtWidgets.QPushButton("Start")
+    threadpool = QThreadPool()
 
-
-
-
-
+    threadpool.start(worker)
     window = Window()
     app.exec()
 
