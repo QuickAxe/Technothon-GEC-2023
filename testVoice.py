@@ -1,9 +1,10 @@
 ## For testing only 
 
 import voiceParser as vs 
+import news 
 
-query = vs.getCommand().lower()
+query = news.getNews()
 
-print(query)
 
-vs.speak(query)
+for words in query["articles"]:
+    vs.speak(words)
