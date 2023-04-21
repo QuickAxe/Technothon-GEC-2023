@@ -53,7 +53,3 @@ def getWeather():
     data = res.json()
 
     return data
-
-print(getWeather()["current"]["condition"]["icon"])
-    
-
