@@ -18,7 +18,7 @@ class Health(QWidget):
         heartbeat = self.fitData['heartRate']
         sleep = self.fitData    ['sleep']
         Sp02 =  self.fitData    ['SpO2']
-        stepGoal = self.fitData ['stepGoal']
+        self.stepGoal = self.fitData ['stepGoal']
         
         font = QFont("Arial", 30, QFont.Bold)
         heartLabel = self.createLabel(str(heartbeat)+" bpm",font)
@@ -30,7 +30,7 @@ class Health(QWidget):
         sp02Label = self.createLabel("spO2 "+str(Sp02),font)
         
         font = QFont("Arial", 10, QFont.Bold)
-        stepLabel = self.createLabel("stepgoal "+str(stepGoal),font)
+        stepLabel = self.createLabel("stepgoal "+str(self.stepGoal),font)
         
         
         self.healthInfoLayout.addWidget(sleepLabel)
@@ -46,7 +46,9 @@ class Health(QWidget):
         
         self.setLayout(self.layout)
         
-        
+    def getStepGoal(self):
+        return self.StepGoal
+      
     def createLabel(self, text,font):
         # print(text)
         label = QLabel()

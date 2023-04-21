@@ -19,10 +19,10 @@ class Weather(QWidget):
         location = self.weather['location']['name']
         temperature = self.weather['current']['temp_c']
         humidity =  self.weather['current']['humidity']
-        condition = self.weather['current']['condition']['text']
+        self.weatherCondition = self.weather['current']['condition']['text']
         
         font = QFont("Arial", 10, QFont.Bold)
-        condLabel = self.createLabel(condition,font)
+        condLabel = self.createLabel(self.weatherCondition,font)
         
         font = QFont("Arial", 30, QFont.Bold)
         tempLabel = self.createLabel(str(temperature) + " °C",font)
@@ -41,7 +41,8 @@ class Weather(QWidget):
         
         self.layout.addLayout(self.weatherInfoLayout)
         self.setLayout(self.layout)
-        
+    def getWeatherCondition(self):
+        return self.weatherCondition
         
     def createLabel(self, text,font):
         # print(text)

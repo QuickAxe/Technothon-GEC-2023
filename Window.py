@@ -112,13 +112,15 @@ class Window(QMainWindow):
         self.newsJson = news.getNewsJson()
         self.Layout1.addWidget(news)
         weather = Weather()
+        self.weatherConsition = weather.getWeatherCondition()
         self.Layout1.addWidget(weather)
         self.HorizontalLayout.addLayout(self.Layout1)
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
-        self.health = Health()
-        self.Layout2.addWidget(self.health,0)
+        health = Health()
+        self.stepGoals = health.stepGoal()
+        self.Layout2.addWidget(health,0)
         events = Events(0,0,0,0,12)
         self.Layout2.addWidget(events,0)
         self.HorizontalLayout.addLayout(self.Layout2)
@@ -169,6 +171,8 @@ class Window(QMainWindow):
         elif(command == "open weather" or command == "whats the weather" or command == "weather"):
             ###  
             ### !! Add weather info
+            sr.speak("the weather today is ")
+            sr.speak(self.weatherCondition)
             ###
             sr.speak("weather")
         elif(command == "news one" or command == "news article one" or command == "expand news article one"):
@@ -190,14 +194,15 @@ class Window(QMainWindow):
         elif(command == "health" or command == "health goal" or command == "how many steps today"):
             ###
             ### !!! health, steps today
-            self.
-            sr.speak("your step goal for today is health['stepGoal'] steps")
+            
+            sr.speak(f"your step goal for today is health")
+            sr.speak(self.stepGoals)
+            sr.speak("steps")
         elif(command == "mirror mirror on the wall"):
-            ####
-            #### display clown image here
-            ####
-        # Window.clownMode()
+            self.clownMode()
             sr.speak("I'm the funniest of them all")
+        elif(command == "home" or command == "back"  ):
+            self.homeMode()
         print(command)
 
    
