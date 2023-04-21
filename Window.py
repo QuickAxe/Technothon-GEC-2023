@@ -13,27 +13,6 @@ from weatherWidget import Weather
 
 import speech_recognition as sr
 
-def init():
-    worker = VoiceWorker()
-    thread = QtCore.QThread()
-    thread.start()
-    worker.moveToThread(thread)
-
-    worker.textChanged.connect(listen)
-
-    start_button = QtWidgets.QPushButton("Start")
-
-
-
-
-
-    window = Window()
-    app.exec()
-
-if __name__ == "__main__":
-    
-    init()
-
 
 class VoiceWorker(QtCore.QObject):
     textChanged = QtCore.pyqtSignal(str)
@@ -162,6 +141,7 @@ class Window(QMainWindow):
         self.layout.addWidget(self.clownImage, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
+   
     def listen(self, command):
         command = command.lower()
         if(command == "hello" or command == "hi"):
@@ -211,8 +191,7 @@ def init():
 
     threadpool = QThreadPool()
     
-    worker = worker()
-    threadpool.start(worker)
+    threadpool.start(VoiceWorker.task)
 
 
     window = Window()
