@@ -8,8 +8,8 @@ from clockWidget import Clock
 from newsWidget import News
 from eventsWidget import Events
 from newsFocus import NewsFocus
-# from healthWidget import Health
-# from weatherWidget import Weather
+from healthWidget import Health
+from weatherWidget import Weather
 
 app = QApplication(sys.argv)
 
@@ -19,6 +19,7 @@ class Window(QMainWindow):
 
         # setting title
         self.setWindowTitle("Mirror")
+        
         # setting geometry
         self.setGeometry(100, 100, 400, 400)
 
@@ -26,7 +27,9 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
-        self.focusedNewsMode(2)
+
+        #self.focusedNewsMode(2)
+       
         # showing all the widgets
         self.show()
 
@@ -64,15 +67,9 @@ class Window(QMainWindow):
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
-<<<<<<< Updated upstream
-        # weather = Weather(0,0,0,12)
-        # self.Layout2.addWidget(weather,0)
-        events = Events(0,0,0,12)
-=======
         weather = Weather()
         self.Layout2.addWidget(weather,0)
         events = Events(0,0,0,0,12)
->>>>>>> Stashed changes
         self.Layout2.addWidget(events,0)
         
         self.window.setLayout(self.HorizontalLayout)
@@ -93,3 +90,5 @@ class Window(QMainWindow):
 def init():
     window = Window()
     sys.exit(app.exec())
+
+init()
