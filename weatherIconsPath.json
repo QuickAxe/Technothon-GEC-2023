@@ -1,0 +1,128 @@
+[
+    {
+        "code": 1000,
+        "day": "Sunny",
+        "night": "Clear",
+        "icon": "sunny.png"
+    },
+    {
+        "code": 1003,
+        "day": "Partly cloudy",
+        "night": "Partly cloudy",
+        "icon": "cloudy.png"
+    },
+    {
+        "code": 1006,
+        "day": "Cloudy",
+        "night": "Cloudy",
+        "icon": "cloudy.png"
+    },
+    {
+        "code": 1009,
+        "day": "Overcast",
+        "night": "Overcast",
+        "icon": "cloudy.png"
+    },
+    {
+        "code": 1030,
+        "day": "Mist",
+        "night": "Mist",
+        "icon": "cloudy.png"
+    },
+    {
+        "code": 1063,
+        "day": "Patchy rain possible",
+        "night": "Patchy rain possible",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1087,
+        "day": "Thundery outbreaks possible",
+        "night": "Thundery outbreaks possible",
+        "icon": "thunder.png"
+    },
+    {
+        "code": 1135,
+        "day": "Fog",
+        "night": "Fog",
+        "icon": "cloudy.png"
+    },
+    {
+        "code": 1150,
+        "day": "Patchy light drizzle",
+        "night": "Patchy light drizzle",
+        "icon": "ligthRain.png"
+    },
+    {
+        "code": 1153,
+        "day": "Light drizzle",
+        "night": "Light drizzle",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1180,
+        "day": "Patchy light rain",
+        "night": "Patchy light rain",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1183,
+        "day": "Light rain",
+        "night": "Light rain",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1186,
+        "day": "Moderate rain at times",
+        "night": "Moderate rain at times",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1189,
+        "day": "Moderate rain",
+        "night": "Moderate rain",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1192,
+        "day": "Heavy rain at times",
+        "night": "Heavy rain at times",
+        "icon": "heavyRain.png"
+    },
+    {
+        "code": 1195,
+        "day": "Heavy rain",
+        "night": "Heavy rain",
+        "icon": "heavyRain.png"
+    },
+    {
+        "code": 1240,
+        "day": "Light rain shower",
+        "night": "Light rain shower",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1243,
+        "day": "Moderate or heavy rain shower",
+        "night": "Moderate or heavy rain shower",
+        "icon": "heavyRain.png"
+    },
+    {
+        "code": 1246,
+        "day": "Torrential rain shower",
+        "night": "Torrential rain shower",
+        "icon": "heavyRain.png"
+    },
+    {
+        "code": 1273,
+        "day": "Patchy light rain with thunder",
+        "night": "Patchy light rain with thunder",
+        "icon": "lightRain.png"
+    },
+    {
+        "code": 1276,
+        "day": "Moderate or heavy rain with thunder",
+        "night": "Moderate or heavy rain with thunder",
+        "icon": "heavyRain.png"
+    }
+]
