@@ -91,4 +91,4 @@ def init():
     window = Window()
     sys.exit(app.exec())
 
-init()
+#init()
