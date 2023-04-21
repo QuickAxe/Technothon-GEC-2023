@@ -64,9 +64,15 @@ class Window(QMainWindow):
         self.HorizontalLayout.addWidget(QLabel(), 1)
         
         self.Layout2 =  QtWidgets.QVBoxLayout()
+<<<<<<< Updated upstream
         # weather = Weather(0,0,0,12)
         # self.Layout2.addWidget(weather,0)
         events = Events(0,0,0,12)
+=======
+        weather = Weather()
+        self.Layout2.addWidget(weather,0)
+        events = Events(0,0,0,0,12)
+>>>>>>> Stashed changes
         self.Layout2.addWidget(events,0)
         
         self.window.setLayout(self.HorizontalLayout)
