@@ -11,10 +11,74 @@ from newsFocus import NewsFocus
 from healthWidget import Health
 from weatherWidget import Weather
 
-app = QApplication(sys.argv)
+import speech_recognition as sr
 
+
+class VoiceWorker(QtCore.QObject):
+    textChanged = QtCore.pyqtSignal(str)
+
+    @QtCore.pyqtSlot()
+    def task(self):
+        r = sr.Recognizer()
+        m = sr.Microphone()
+
+        while True:
+            print("Say somethig!")
+            with m as source:
+                audio = r.listen(source)
+                print("Got it! Now to recognize it...")
+                try:
+                    value = r.recognize_google(audio)
+                    self.textChanged.emit(value)
+                    print("You said: ", value)
+                except sr.UnknownValueError:
+                    print("Oops")
+
+def listen(command):
+    # command = sr.getCommand().lower()
+    if(command == "hello" or command == "hi"):
+        sr.speak("hello")
+    elif(command == "open weather" or command == "whats the weather" or command == "weather"):
+        ###  
+        ### !! Add weather info
+        ###
+        sr.speak("weather")
+    elif(command == "news one" or command == "news article one" or command == "expand news article one"):
+        ###
+        ### !!! news 
+        ###
+        sr.speak("news[0]")
+    elif(command == "news two" or command == "news article two" or command == "expand news article two"):
+        ###
+        ### !!! news 
+        ###
+        sr.speak("news[1]")
+    elif(command == "news three" or command == "news article three" or command == "expand news article three"):
+        ###
+        ### !!! news 
+        ###
+        sr.speak("news[2]")
+    elif(command == "health" or command == "health goal" or command == "how many steps today"):
+        ###
+        ### !!! health, steps today
+        sr.speak("your step goal for today is health['stepGoal'] steps")
+    elif(command == "mirror mirror on the wall"):
+        ####
+        #### display clown image here
+        ####
+       # Window.clownMode()
+        sr.speak("I'm the funniest of them all")
+    print(command)
+
+
+
+
+
+
+app = QApplication(sys.argv)
 class Window(QMainWindow):
     def __init__(self):
+
         super().__init__()
 
         # setting title
@@ -27,7 +91,7 @@ class Window(QMainWindow):
         # self.default_palette = QtGui.QGuiApplication.palette()
         self.setDarkPallete()
         self.UiComponents()
-        self.clownMode()
+        #self.clownMode()
         #self.focusedNewsMode(2)
        
         # self.focusedNewsMode(2)
@@ -84,6 +148,8 @@ class Window(QMainWindow):
         self.layout.addWidget(self.focusNews, 1,1,2,2)
         self.layout.addWidget(QLabel(), 0,3, 4,1)
         self.window.setLayout(self.layout)
+        return self.newsJson
+    
     def createImageLabel(self, path):
         label = QLabel()
         image = QPixmap(path)
@@ -105,7 +171,7 @@ class Window(QMainWindow):
         self.setCentralWidget(self.window)
         self.layout = QtWidgets.QGridLayout()
         font = QFont("Arial", 30, QFont.Bold)
-        label = self.createLabel("Of course, it is you, my liege.",font)
+        label = self.createLabel("I'm the funniest of them all",font)
         self.layout.addWidget(label, 0,0, 1,4)
         self.clownImage = self.createImageLabel("clown.png")
         self.layout.addWidget(self.clownImage, 1,1,2,2)
@@ -113,10 +179,26 @@ class Window(QMainWindow):
         self.window.setLayout(self.layout)
         
 
+def init():
+    worker = VoiceWorker()
+    thread = QtCore.QThread()
+    thread.start()
+    worker.moveToThread(thread)
+
+    worker.textChanged.connect(listen)
+
+    start_button = QtWidgets.QPushButton("Start")
+
+
+
+
+
+    window = Window()
+    app.exec()
 
 if __name__ == "__main__":
-# def init():
-    window = Window()
-    sys.exit(app.exec())
+    
+    init()
+
 
 #init()

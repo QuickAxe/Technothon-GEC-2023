@@ -5,7 +5,7 @@ import speech_recognition as sr
 
 
 # initialising text to voice engine
-engine = pyttsx3.init('espeak')
+engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 engine.setProperty('rate', 190)
@@ -23,18 +23,18 @@ def getCommand():
     with sr.Microphone() as source:
 
         print("Listening...")
-        # command.pause_threshold = 1
-        audio = command.listen(source)
+        command.pause_threshold = 1
+        audio = command.listen(source, timeout=3, phrase_time_limit=5)
 
     try:
         ##
         ##  add this to smart mirror ui somehow
         ##
         print("Computing...")
-        query = command.recognize_google(audio)
+        query = command.recognize_google(audio, language= 'en-in')
 
         # remove after testing 
-        print("user said: {query} \n")
+        # print("user said: {query} \n")
 
     except Exception as error:
         ##
